@@ -1,0 +1,17 @@
+  .container {
+      width: 90%;
+      height: 500px;
+      display: flex;
+      flex-direction: row;
+      border: solid
+  }
+  .small-col {
+      background-color: black;
+      flex: 1;
+      height: 500px;
+
+  }
+  .big-col {
+      flex: 2;
+      height: 500px;
+  }

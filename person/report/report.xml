@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+        id="report_person"
+        string="Person Details"
+        model="person.person"
+        report_type="qweb-pdf"
+        name="person.report_person"
+        file="person.report_person"
+    />
+
+    <report
+        id="report_tree"
+        string="Person Details Tree"
+        model="person.person"
+        report_type="qweb-pdf"
+        name="person.report_tree"
+        file="person.report_tree"/>
+</odoo>

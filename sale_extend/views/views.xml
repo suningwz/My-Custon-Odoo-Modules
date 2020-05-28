@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="sale_extend_view">
+      <field name="name">sale_extend list</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <header>
+          <button name="send_api" string="Send Details To API" class="oe_highlight" type="object"/>
+        </header>
+      </field>
+    </record>
+  </data>
+</odoo>

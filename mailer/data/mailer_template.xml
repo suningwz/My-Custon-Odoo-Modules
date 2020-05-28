@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="mailer_email_template" model="mail.template">
+            <field name="name">Mailer: Send Email</field>
+            <field name="model_id" ref="mailer.model_mailer_mailer"/>
+            <field name="email_from">anthonynwobodo19@gmail.com</field>
+            <field name="email_to">${object.email}</field>
+            <field name="subject">Email to ${object.name} From The Company</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Hello ${object.name}
+                        <br /><br />
+                        This is a mail i sent to you as a test, below are your details:
+                        <br /><br />
+                        - Phone : ${object.phone}
+                        <br /><br />
+                        - Address : ${object.address}
+                        <br /><br />
+                        Hey wena, make sure you reply to me as soon as you get this mail.
+                    </p>
+                </div>
+            </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="False"/>
+        </record>
+    </data>
+</odoo>

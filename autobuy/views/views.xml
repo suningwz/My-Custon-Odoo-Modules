@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<odoo>
+  <data>
+      <record id="auto_buy_form_view" model="ir.ui.view">
+        <field name="name">auto buy form</field>
+          <field name="model">autobuy.autobuy</field>
+          <field name="type">form</field>
+          <field name="arch" type="xml">
+          <form string="Autobuy customer details">
+            <sheet>
+                <group>
+                <field name="service"/>
+                <field name="name"/>
+                <field name="make"/>
+                <field name="car_model"/>
+                </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+
+      <record model="ir.ui.view" id="autobuy_tree_view">
+          <field name="name">autobuy tree</field>
+              <field name="model">autobuy.autobuy</field>
+              <field name="type">tree</field>
+          <field name="arch" type="xml">
+              <tree string="Autobuy customer details">
+              <field name="service"/>
+              <field name="name"/>
+              <field name="make"/>
+              <field name="car_model"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="auto_buy_form">
+          <field name="name">Autobuy Customers</field>
+          <field name="res_model">autobuy.autobuy</field>
+      </record>
+
+    <menuitem name="AutoBuy" id="Autobuy_menu"/>
+    <menuitem name="Autobuy" id="AutoBuy_group_menu" parent="Autobuy_menu"/>
+    <menuitem name="Autobuy Customers" parent="AutoBuy_group_menu" id="Autobuy_menu_mainform" action="auto_buy_form"/>
+
+    <record id="service_form_view" model="ir.ui.view">
+            <field name="name">service form</field>
+            <field name="model">service.sale</field>
+            <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Service">
+            <sheet>
+                <group>
+                <field name="serviceid"/>
+                <field name="name"/>
+                <field name="make"/>
+                <field name="car_model"/>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="service_tree_view">
+        <field name="name">service tree</field>
+        <field name="model">service.sale</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Service">
+            <field name="serviceid"/>
+            <field name="name"/>
+            <field name="make"/>
+            <field name="car_model"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="service_buy_form">
+        <field name="name">Service</field>
+        <field name="res_model">service.sale</field>
+    </record>
+
+    <menuitem name="Sales" id="Sales_group_menu" parent="Autobuy_menu"/>
+    <menuitem name="Slip" parent="Sales_group_menu" id="Sales_menu_mainform" action="service_buy_form"/>
+  </data>
+</odoo>

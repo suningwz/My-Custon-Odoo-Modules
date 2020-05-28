@@ -1,0 +1,1 @@
+# An Odoo Module that makes it easy to save a person's basic details and also mails them on a button click(DEMO)

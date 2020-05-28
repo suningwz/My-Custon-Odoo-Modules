@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+    <record id="menu_landing_page_backyard" model="website.menu">
+      <field name="name">Backyard Page</field>
+      <field name="url">/page/landing_page/backyard</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">20</field>
+    </record>
+    <record id="menu_landing_page_oneschool" model="website.menu">
+      <field name="name">OneSchool Page</field>
+      <field name="url">/page/landing_page/oneschool</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">20</field>
+    </record>
+     <record id="menu_landing_page_unfold" model="website.menu">
+      <field name="name">Unfold Page</field>
+      <field name="url">/page/landing_page/unfold</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">20</field>
+    </record>
+      <record id="menu_landing_page_furnish" model="website.menu">
+      <field name="name">Furnish Page</field>
+      <field name="url">/landing_page/static/src/furnish.html</field>
+      <field name="parent_id" ref="website.main_menu"/>
+      <field name="sequence" type="int">20</field>
+    </record>
+  </data>
+</odoo>

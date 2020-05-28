@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    <template id="report_person">-->
+<!--        <t t-call="web.html_container">-->
+<!--             <t t-foreach="docs" t-as="o">-->
+<!--                <t t-call="web.external_layout">-->
+<!--                    <div class="page">-->
+<!--                        <h2>Report title</h2>-->
+<!--                        <p>This object's name is <span t-field="o.name"/></p>-->
+<!--                    </div>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </t>-->
+<!--    </template>-->
+
+    <template id="report_person">
+    <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                        <div class="page">
+                                <style>
+                                     .container {
+                                         width: 90%;
+                                         height: 500px;
+                                         display: flex;
+                                         flex-direction: row;
+                                         border: solid
+                                     }
+                                     .small-col {
+                                         background-color: black;
+                                         flex: 1;
+                                         height: 500px;
+                                         display: flex;
+                                         flex-direction: row;
+
+                                     }
+                                     .big-col {
+                                         flex: 2;
+                                         height: 500px;
+                                        padding-left: 20px;
+
+                                     }
+                                    .img {
+                                        width: 200px;
+                                        height: 250px;
+                                        flex: 2;
+                                        margin-top: 20px;
+                                    }
+                                    .f1 {
+                                        flex: 1;
+                                    }
+                                     .f2 {
+                                        flex: 1;
+                                    }
+                                </style>
+                                <div class="container more">
+                                   <div class="small-col">
+                                       <div class="f1"></div>
+                                        <img t-att-src="image_data_uri(doc.image)" class="img"/>
+                                       <div class="f2"></div>
+                                   </div>
+                                   <div class="big-col" >
+                                       <h1 t-esc="doc.name"/>
+                                       <br></br>
+                                       <br></br>
+                                       <ul>
+                                           <li t-esc="doc.phone"/>
+                                           <br></br>
+                                           <br></br>
+                                           <li t-esc="doc.email"/>
+                                           <br></br>
+                                           <br></br>
+                                           <li t-esc="doc.address"/>
+                                           <br></br>
+                                           <br></br>
+                                           <li t-esc="doc.company"/>
+                                       </ul>
+                                   </div>
+
+                               </div>
+                            </div>
+
+        </t>
+    </t>
+    </template>
+</odoo>
