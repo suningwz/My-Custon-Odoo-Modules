@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pending_receipt_pending_receipt,pending_receipt.pending_receipt,model_pending_receipt_pending_receipt,base.group_user,1,1,1,1

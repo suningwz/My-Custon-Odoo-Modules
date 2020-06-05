@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_manufacturing_requisitions_manufacturing_requisitions,manufacturing.requisitions,model_manufacturing_requisitions,base.group_user,1,1,1,1
+access_manufacturing_requisitions_manufacturing_project,manufacturing.project,model_manufacturing_project,base.group_user,1,1,1,1
+access_manufacturing_requisitions_manufacturing_material_requisition,manufacturing.material.requisition,model_manufacturing_material_requisition,base.group_user,1,1,1,1

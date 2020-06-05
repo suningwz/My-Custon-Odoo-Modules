@@ -1,27 +1,89 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
+<!--       <record id="manu_seq" model="ir.sequence">-->
+<!--          <field name="name">No_PD</field>-->
+<!--          <field name="padding">3</field>-->
+<!--          <field name="code">manufacturing_requisitions</field>-->
+<!--        </record>-->
+
 
     <record model="ir.ui.view" id="manufacturing_requisitions.list">
       <field name="name">manufacturing_requisitions list</field>
       <field name="model">manufacturing.requisitions</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-           <field name="vendor"/>
-           <field name="show_only_this_vendors_material"/>
-           <field name="associate_with_project"/>
-           <field name="po_num"/>
-           <field name="order_by"/>
-           <field name="needed_by"/>
-           <field name="comment"/>
-           <field name="material_requisition"/>
-           <field name="requested_by"/>
-            <field name="state" invisible="1"/>
-        </tree>
+          <form>
+            <field name="vendor"/>
+              <group>
+                   <field name="show_only_this_vendors_material"/>
+                   <field name="associate_with_project"/>
+                   <field name="po_num"/>
+                   <field name="order_by"/>
+                   <field name="needed_by"/>
+                   <field name="comment"/>
+              </group>
+                    <notebook>
+                        <page string="Material Requisition">
+                               <field name="material_requisition">
+                                <tree>
+                                       <field name="part_no"/>
+                                       <field name="material_name"/>
+                                       <field name="material_id"/>
+                                       <field name="version"/>
+                                       <field name="material_unit"/>
+                                       <field name="vendor_part_no"/>
+                                       <field name="vendor_catalog_no"/>
+                                       <field name="cost_per_unit"/>
+                                       <field name="quantity"/>
+                                       <field name="unit"/>
+                                       <field name="msds"/>
+                                       <field name="c_of_a"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+               <field name="requested_by"/>
+               <field name="state" invisible="1"/>
+          </form>
       </field>
     </record>
 
+<!--      <record model="ir.ui.view" id="manufacturing_requisitions.form">-->
+<!--      <field name="name">manufacturing_requisitions list</field>-->
+<!--      <field name="model">manufacturing.requisitions</field>-->
+<!--      <field name="arch" type="xml">-->
+<!--               <field name="vendor"/>-->
+<!--               <field name="show_only_this_vendors_material"/>-->
+<!--               <field name="associate_with_project"/>-->
+<!--               <field name="po_num"/>-->
+<!--               <field name="order_by"/>-->
+<!--               <field name="needed_by"/>-->
+<!--               <field name="comment"/>-->
+<!--                    <notebook>-->
+<!--                        <page string="Material Requisitions">-->
+<!--                            <field name="material_requisition">-->
+<!--                                <tree>-->
+<!--                                       <field name="part_no"/>-->
+<!--                                       <field name="material_name"/>-->
+<!--                                       <field name="material_id"/>-->
+<!--                                       <field name="version"/>-->
+<!--                                       <field name="material_unit"/>-->
+<!--                                       <field name="vendor_part_no"/>-->
+<!--                                       <field name="vendor_catalog_no"/>-->
+<!--                                       <field name="cost_per_unit"/>-->
+<!--                                       <field name="quantity"/>-->
+<!--                                       <field name="unit"/>-->
+<!--                                       <field name="msds"/>-->
+<!--                                       <field name="c_of_a"/>-->
+<!--                                </tree>-->
+
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                    </notebook>-->
+<!--               <field name="requested_by"/>-->
+<!--               <field name="state" invisible="1"/>-->
+<!--      </field>-->
+<!--    </record>-->
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="manufacturing_requisitions.action_window">
@@ -31,29 +93,8 @@
     </record>
 
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="manufacturing_requisitions.action_server">
-      <field name="name">manufacturing_requisitions server</field>
-      <field name="model_id" ref="model_manufacturing_requisitions_manufacturing_requisitions"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
 
    <menuitem name="Manufacturing Requisitions" id="manufacturing_requisitions_menu_root" sequence="7"/>
-
-    <!-- menu categories -->
-<!--    <menuitem name="Menu 1" id="manufacturing_requisitions.menu_1" parent="manufacturing_requisitions_menu_root" action="manufacturing_requisitions.action_window"/>-->
-    <!-- actions -->
 
     <menuitem name="Manufacturing Requisitions" id="manufacturing_requisitions_menu_1_list"
               parent="stock.menu_stock_config_settings"

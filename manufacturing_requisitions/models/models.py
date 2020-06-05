@@ -7,8 +7,7 @@ class manufacturing_requisitions(models.Model):
     _name = 'manufacturing.requisitions'
     _description = 'manufacturing requisitions'
 
-    name = fields.Char(string='Requisition #', required=True, copy=False, readonly=True,
-                       states={'draft': [('readonly', False)]}, index=True, default=lambda self: _('New'))
+    name = fields.Char(string='Requisition #', readonly=True,)
     vendor = fields.Many2one(comodel_name='res.partner', string='Vendor')
     show_only_this_vendors_material = fields.Boolean()
     associate_with_project = fields.Many2one(comodel_name='manufacturing.project')
@@ -16,9 +15,14 @@ class manufacturing_requisitions(models.Model):
     order_by = fields.Date()
     needed_by = fields.Date()
     comment = fields.Text()
-    material_requisition = fields.One2many(comodel_name='manufacturing.material.requisition', inverse_name='material_name')
+    material_requisition = fields.One2many(comodel_name='manufacturing.material.requisition', inverse_name='manufacturing_requisitions')
     requested_by = fields.Many2one(comodel_name='res.users')
     state = fields.Char()
+
+    @api.model
+    def create(self, vals):
+        vals['name'] = self.env['ir.sequence'].get('manufacturing.requisitions')
+        return super(manufacturing_requisitions, self).create(vals)
 
 
 class manufacturing_project(models.Model):
@@ -44,3 +48,4 @@ class manufacturing_material_requisition(models.Model):
     unit = fields.Many2one(comodel_name='uom.uom')
     msds = fields.Boolean(string='MSDS')
     c_of_a = fields.Boolean(string='C of A')
+    manufacturing_requisitions = fields.Many2one(comodel_name='manufacturing.requisitions')

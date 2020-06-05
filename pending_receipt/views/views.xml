@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pending_receipt.list">
+      <field name="name">pending_receipt list</field>
+      <field name="model">manufacturing.pending.receipt</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="receipt_no"/>
+          <field name="part_no"/>
+          <field name="version"/>
+          <field name="material_name"/>
+          <field name="material_id"/>
+          <field name="vendor_name"/>
+          <field name="vendor_part_no"/>
+          <field name="project"/>
+          <field name="po_no"/>
+          <field name="requisition_no"/>
+          <field name="qty_ord"/>
+          <field name="qty_rcv"/>
+          <field name="unit"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="pending_receipt.action_window">
+      <field name="name">pending_receipt window</field>
+      <field name="res_model">pending_receipt.pending_receipt</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="pending_receipt.action_server">
+      <field name="name">pending_receipt server</field>
+      <field name="model_id" ref="model_pending_receipt_pending_receipt"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="pending_receipt" id="pending_receipt.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="pending_receipt.menu_1" parent="pending_receipt.menu_root"/>
+    <menuitem name="Menu 2" id="pending_receipt.menu_2" parent="pending_receipt.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="pending_receipt.menu_1_list" parent="pending_receipt.menu_1"
+              action="pending_receipt.action_window"/>
+    <menuitem name="Server to list" id="pending_receipt" parent="pending_receipt.menu_2"
+              action="pending_receipt.action_server"/>
+-->
+  </data>
+</odoo>
