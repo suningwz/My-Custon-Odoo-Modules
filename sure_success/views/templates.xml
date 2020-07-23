@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="apply">
+    <t t-call="website.layout">
+        <t t-set="additional_title">College Registration</t>
+
+        <div id="wrap"  class="container">
+            <h1 class="text-center mt-2">
+                Registration Form
+            </h1>
+
+            <div class="row mt-3">
+                <section id="forms" class="col">
+                    <!-- <form id="register" class="s_website_form" data-success_page="/college/register/success" hide-change-model="false"> -->
+                        <div class="form-group row form-field o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4 text-left">
+                                <label class="col-form-label" for="partner_name">Your Name</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="text" class="form-control o_website_form_input" id="partner_name" name="partner_name" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group row form-field o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4 text-left">
+                                <label class="col-form-label" for="email_from">Your Email</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="email" class="form-control o_website_form_input" id="email_from" name="email_from" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group row form-field o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4 text-left">
+                                <label class="col-form-label" for="partner_phone">Your Phone Number</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="tel" placeholder="11 digit phone number" pattern="[0-9]{11}" class="form-control o_website_form_input" id="partner_phone" name="partner_phone" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group row form-field o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4 text-left">
+                                <label class="col-form-label" for="partner_age">Your Age</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="number" class="form-control o_website_form_input" id="partner_age" name="partner_age" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group row form-field">
+                            <div class="col-lg-3 col-md-4 text-left">
+                                <label class="col-form-label" for="description">Short Introduction</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <textarea class="form-control o_website_form_input" id="description" name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                <button id="collegeRegistrationSubmitBtn" class="btn btn-primary btn-lg o_website_form_send">Submit</button>
+                                <span id="o_website_form_result"></span>
+                            </div>
+                        </div>
+                    <!-- </form> -->
+                </section>
+            </div>
+        </div>
+    </t>
+</template>
+
+<template id="assets_frontend" inherit_id="website.assets_frontend">
+    <!-- <xpath expr="link[last()]" position="after">
+        <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale.scss" />
+        <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_mail.scss" />
+        <link rel="stylesheet" type="text/scss" href="/website_sale/static/src/scss/website_sale_frontend.scss"/>
+        <link rel="stylesheet" type="text/scss" href="/sale/static/src/scss/sale_portal.scss"/>
+        <link rel="stylesheet" type="text/scss" href="/sale/static/src/scss/product_configurator.scss"/>
+    </xpath> -->
+    <xpath expr="script[last()]" position="after">
+        <script type="text/javascript" src="/sure_success/static/src/js/main.js"></script>
+    </xpath>
+</template>
+
+</odoo>

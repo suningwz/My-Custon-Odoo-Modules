@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <data>
+        <template id="consent_form" name="Hospital Consent Form">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Consent Form</h1>
+                        <t t-esc="consent.consent_form"/>
+                    <br />
+                    <br />
+                    <form method="post" action="/hospital/submit-consent" enctype="multipart/form-data" class="border padding">
+                        <div class="form-group">
+                            <label>Upload Signature</label>
+                            <input type="file" name="signature"  class="form-control" required="True" />
+                        </div>
+                        <div class="form-group">
+                             <button type="submit" class="btn btn-primary">Submit Signatory</button>
+                        </div>
+                    </form>
+                </div>
+
+            </t>
+        </template>
+
+<!--        Template for returning Error-->
+         <template id="consent_form_response" name="Hospital Consent Signatory">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Consent Signatory</h1>
+                    <br />
+                    <div class="text-center border alert-success">
+                        <h3 class="center"><t t-esc="response"/></h3>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>

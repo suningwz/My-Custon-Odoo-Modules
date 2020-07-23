@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="hospital_consent_form_view">
+      <field name="name">hospital consent forms</field>
+      <field name="model">hospital.consent.form</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="consent_form"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hospital_consent_forms_action_window">
+      <field name="name">hospital consent forms</field>
+      <field name="res_model">hospital.consent.form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem id="configuration" name="Configuration" parent="hospital_visits.menu_hospital_visits_root"  sequence="30" />
+
+<!--    Sub menu-->
+
+    <menuitem id="hospital_consent_forms" name="Consent Forms" parent="configuration" action="hospital_consent_forms_action_window" sequence="10" />
+
+
+  </data>
+</odoo>

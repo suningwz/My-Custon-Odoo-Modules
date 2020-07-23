@@ -23,8 +23,8 @@ class sale_extend(models.Model):
                         "total_amount": self.amount_total,  # in INR
                         "add": self.partner_id.street,  # client address
                         "city": self.partner_id.city,
-                        "state": self.partner_id.state_id,
-                        "country": self.partner_id.country_id,
+                        "state": self.partner_id.state_id.name,
+                        "country": self.partner_id.country_id.name,
                         "phone": self.partner_id.phone,
                         "pin": self.partner_id.zip,
                         # optional

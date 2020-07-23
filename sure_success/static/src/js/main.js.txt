@@ -1,0 +1,19 @@
+function sendForm() {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("forms").innerHTML = "<h2 class='text-left'>" + this.responseText + "</h2>";
+        }
+    };
+    
+    xhttp.open("POST", "/college/register", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    xhttp.send("partner_name=" + document.getElementById("partner_name").value + "&" +
+        "email_from=" + document.getElementById("email_from").value + "&" +
+        "partner_phone=" + document.getElementById("partner_phone").value + "&" +
+        "partner_age=" + document.getElementById("partner_age").value + "&" +
+        "description=" + document.getElementById("description").value);
+}
+
+document.getElementById("collegeRegistrationSubmitBtn").addEventListener("click", sendForm);
