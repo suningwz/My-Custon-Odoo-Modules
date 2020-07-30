@@ -55,16 +55,15 @@ class AppointmentManagement(http.Controller):
         converted_date = datetime.strptime(f'{date} {time}:00', '%Y-%m-%d %H:%M:%S')
 
         record = http.request.env['calendar.event']
-        record.sudo().create({
+        rec_id = record.sudo().create({
             'name': 'Appointment',
             'start': converted_date,
             'stop': converted_date,
             'start_datetime': converted_date,
             'duration': '00.30'
         })
-        return request.redirect('/appointment-booked')
-
-    @http.route('/appointment-booked', type='http', auth="public", website=True, csrf=False)
-    def appointment_booked(self, **kw):
-        return request.render('appointment_management.appointment_confirmation')
-
+        return request.render('appointment_management.appointment_confirmation', {
+            'id': rec_id.id,
+            'date': date,
+            'time': time
+        })

@@ -39,7 +39,10 @@
                          <div class="card" style="background-color: #9a23a3;">
                              <div class="card-body text-center">
                                  <h2>Appointment Booking sent!</h2>
-                                 <p>Your Appointment Has been Booked Successfully</p>
+                                 <h6>Your Appointment Has been Booked Successfully</h6>
+                                 <p><b>Appointment ID:</b> <t t-esc="id"/></p>
+                                 <p><b>Appointment Date:</b> <t t-esc="date"/></p>
+                                 <p><b>Appointment Time:</b> <t t-esc="time"/></p>
                              </div>
                          </div>
                      </div>
