@@ -9,7 +9,7 @@ class HospitalConsentForms(http.Controller):
 
     @http.route('/hospital/consent-form', type='http', auth="public", website=True, csrf=False)
     def consent_form(self, **kw):
-        consent = http.request.env['hospital.consent.form'].sudo().search([]),
+        consent = http.request.env['hospital.consent.form'].sudo().search([])
         return http.request.render('hospital_consent_forms.consent_form', {
             'consent': consent[0]
         })

@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+            <template id="appointment_form" name="Book Appointment">
+            <t t-call="website.layout">
+                <div class="container">
+                    <h1>Book Appointment</h1>
+
+                    <br />
+                    <br />
+                    <form method="post" action="/appointment-management/new"  class="border p-5">
+                        <div class="form-group col">
+                            <label for="date">Appointment Date:</label>
+                            <input type="date" name="date"  class="form-control" required="True" id="date" />
+                            <div id="message"></div>
+                        </div>
+                         <div class="form-group col">
+                            <label for="time">Select Appointment Time:</label>
+                             <br/>
+                            <select name="time" id="time" class="form-control">
+                            </select>
+                        </div>
+                        <br/>
+                        <div class="form-group text-center">
+                             <button type="submit" class="btn btn-primary">Submit Appointment</button>
+                        </div>
+                    </form>
+                </div>
+
+            </t>
+            <xpath expr="script[last()]" position="after">
+                <script type="text/javascript" src="/appointment_management/static/src/js/main.js"></script>
+            </xpath>
+        </template>
+
+        <template id="appointment_confirmation" name="Appointment Booked Successfully">
+            <t t-call="website.layout">
+                <div class="container">
+                    <div class="mt-5">
+                         <div class="card" style="background-color: #9a23a3;">
+                             <div class="card-body text-center">
+                                 <h2>Appointment Booking sent!</h2>
+                                 <p>Your Appointment Has been Booked Successfully</p>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
