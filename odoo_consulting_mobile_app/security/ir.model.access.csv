@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo_consulting_mobile_app_odoo_consulting_mobile_app,odoo_consulting_mobile_app.odoo_consulting_mobile_app,model_odoo_consulting_mobile_app_odoo_consulting_mobile_app,base.group_user,1,1,1,1

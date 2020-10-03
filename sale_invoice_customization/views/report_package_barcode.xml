@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_package_barcode">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <t>
+                        <div class="page">
+                            <div class="oe_structure" />
+                            <table class="table table-condensed" style="border-bottom: 0px solid white !important;">
+                                <tr>
+                                    <th>
+                                        <h1 t-field="o.name" class="mt0 float-left" />
+                                    </th>
+                                    <th name="td_pk_barcode" style="text-align: center">
+                                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" alt="Barcode" style="width:300px;height:50px" />
+                                        <p t-field="o.name" />
+                                    </th>
+                                </tr>
+                            </table>
+                            <div class="row mt32 mb32">
+                                <div t-if="o.packaging_id" class="o_packaging_type col-auto">
+                                    <strong>Package Type:</strong>
+                                    <p t-field="o.packaging_id.name" />
+                                </div>
+                                <div t-if="o.client_po" class="col-auto">
+                                    <strong>Client PO#:</strong>
+                                    <p t-field="o.client_po" />
+                                </div>
+                                <div t-if="o.print_date" class="col-auto">
+                                    <strong>Printing Date:</strong>
+                                    <p t-field="o.print_date" />
+                                </div>
+                                <div t-if="o.ship_from" class="col-auto">
+                                    <strong>Ship From:</strong>
+                                    <p t-field="o.ship_from" />
+                                </div>
+                                <div t-if="o.ship_to" class="col-auto">
+                                    <strong>Ship To:</strong>
+                                    <p t-field="o.ship_to" />
+                                </div>
+                            </div>
+                            <table class="table table-sm" style="border-bottom: 0px solid white !important;">
+                                <t t-set="has_serial_number" t-value="o.quant_ids.mapped('lot_id')" />
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th name="th_quantity" class="text-right">Quantity</th>
+                                        <th name="th_uom">Unit of Measure</th>
+                                        <th name="th_serial" class="text-right" t-if="has_serial_number">Lot/Serial Number</th>
+                                        <th name="th_barcode">Barcode</th>
+                                        <th name="th_internal_ref">Internal ID</th>
+                                        <th name="th_case_qty">Case Qty</th>
+                                        <th name="th_packaging">Product Packaging</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.quant_ids" t-as="l">
+                                        <td>
+                                            <span t-field="l.product_id.name" />
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="l.quantity" />
+                                        </td>
+                                        <td>
+                                            <span t-field="l.product_id.uom_id.name" />
+                                        </td>
+                                        <td class="text-right" t-if="has_serial_number">
+                                            <t t-if="l.lot_id">
+                                                <span t-field="l.lot_id.name" />
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <span t-field="l.product_id.barcode" />
+                                        </td>
+                                        <td>
+                                            <span t-field="l.product_id.default_code" />
+                                        </td>
+                                        <td>
+                                            <span t-esc="(l.quantity/l.package_id.packaging_id.qty) if l.package_id.packaging_id.qty else l.quantity" />
+                                        </td>
+                                        <td>
+                                            <span t-field="l.package_id.packaging_id.qty" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

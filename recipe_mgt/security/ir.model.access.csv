@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_recipe_recipe,recipe.recipe,model_recipe_recipe,base.group_user,1,1,1,1
+access_recipe_recipe_type,recipe.recipe.type,model_recipe_recipe_type,base.group_user,1,1,1,1
+access_recipe_recipe_primary_categories,recipe.recipe.primary_categories,model_recipe_recipe_primary_categories,base.group_user,1,1,1,1
+access_recipe_recipe_secondary_categories,recipe.recipe.secondary_categories,model_recipe_recipe_secondary_categories,base.group_user,1,1,1,1
+
+access_recipe_ingredient_allergen,recipe.ingredient.allergen,model_recipe_ingredient_allergen,base.group_user,1,1,1,1
+access_recipe_ingredient_group,recipe.ingredient.group,model_recipe_ingredient_group,base.group_user,1,1,1,1

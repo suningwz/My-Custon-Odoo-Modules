@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <template id="report_package_barcode_modified" inherit_id="sale_invoice_customization.report_package_barcode">
+            <xpath expr="//div[@class='row mt32 mb32']" position="after">
+                 <div class="row mt32 mb32">
+                        <div t-if="o.shipping_weight" class="o_packaging_type col-auto">
+                            <strong>Shipping Weight:</strong>
+                            <p t-field="o.shipping_weight" />
+                        </div>
+                    </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

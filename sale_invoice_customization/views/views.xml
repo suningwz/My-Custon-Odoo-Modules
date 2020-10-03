@@ -1,0 +1,108 @@
+<odoo>
+  <data>
+
+    <!--  Inherited sale.order view-->
+    <record model="ir.ui.view" id="sale_order_view_inherit">
+      <field name="name">sale.order.view.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="client_po" />
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+          <field name="package" />
+          <field name="case_qty" />
+        </xpath>
+      </field>
+    </record>
+
+    <!--  Inherited purchase.order view-->
+    <record model="ir.ui.view" id="purchase_order_view_inherit">
+      <field name="name">purchase.order.view.inherit1</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_qty']" position="after">
+          <field name="package" />
+          <field name="case_qty" />
+        </xpath>
+      </field>
+    </record>
+
+    <!--  Inherited sale.order tree view-->
+    <record model="ir.ui.view" id="sale_order_tree_extended">
+      <field name="name">Sale</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="client_po" />
+        </xpath>
+      </field>
+    </record>
+
+
+    <!--  Inherited account.move view-->
+    <record model="ir.ui.view" id="invoice_extended">
+      <field name="name">Invoice</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="client_po" />
+        </xpath>
+      </field>
+    </record>
+
+    <!--  Inherited stock.picking view-->
+    <record model="ir.ui.view" id="stock_picking_view_inherit">
+      <field name="name">sale.picking.view.inherit</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='origin']" position="after">
+          <field name="client_po" />
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field[@name='move_ids_without_package']/tree/field[@name='quantity_done']" position="after">
+          <field name="case_qty_demand" readonly="1" />
+          <field name="case_qty_reserved" readonly="1" />
+          <field name="case_qty_done" readonly="1" />
+        </xpath>
+      </field>
+    </record>
+
+    <!--  Inherited account.move view-->
+    <record model="ir.ui.view" id="account_move_view_inherit">
+      <field name="name">account.move.view.inherit</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form" />
+      <field name="arch" type="xml">
+        <xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="replace">
+          <field name="quantity" string="Invoiced Quantity" />
+        </xpath>
+        <xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="after">
+          <!-- <field name="ordered_qty" />
+          <field name="case_qty" /> -->
+          <field name="invoiced_case_qty" />
+          <field name="package" />
+        </xpath>
+      </field>
+    </record>
+
+    <!--  Inherited stock.quant.package view-->
+    <record model="ir.ui.view" id="package_extended">
+      <field name="name">Packages</field>
+      <field name="model">stock.quant.package</field>
+      <field name="inherit_id" ref="stock.view_quant_package_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='location_id']" position="after">
+          <field name="client_po" />
+          <field name="ship_from" />
+          <field name="ship_to" />
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

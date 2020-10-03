@@ -1,34 +1,31 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Appointment Management",
+    'name': "Odoo Consulting Mobile App Module",
 
     'summary': """
-        This module helps to schedule and manage appointments for professionals.""",
+       This is a required module for an efficient use of the Odoo Consulting Mobile App""",
 
     'description': """
-        This module helps to schedule and manage appointments for professionals.
+        Long description of module's purpose
     """,
 
-    'author': "Evans Ehiorobo",
+    'author': "My Company",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Calendar',
+    'category': 'Uncategorized',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'calendar', 'mail', 'website'],
+    'depends': ['base', 'project', 'mail'],
 
     # always loaded
     'data': [
-        'data/config_data.xml',
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
     ],
-    'installable': True,
-    'auto_install': False,
-    'application': True
+
 }
