@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+    <act_window name="Pull Orders"
+            id="pull_orders_action"
+            res_model="pull.orders"
+            binding_model="sale.order"
+            binding_views="list"
+            view_mode="list"
+            target="new"
+        />
+  </data>
+</odoo>
